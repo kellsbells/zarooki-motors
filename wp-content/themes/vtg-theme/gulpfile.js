@@ -89,7 +89,7 @@ gulp.task( 'js', ['lint'], function() {
 // Concatenate, minify, move style files
 gulp.task( 'buildCss', function() {
 	gulp.src( [ path.BUILD + '/*.css', path.BUILD + '/**/*.css' ] )
-		.pipe( rename({suffix: '.min'}) )
+		.pipe( rename({ suffix: '.min' }) )
 		.pipe( cssnano() )
 		.pipe( gulp.dest( path.DIST ) );
 });
