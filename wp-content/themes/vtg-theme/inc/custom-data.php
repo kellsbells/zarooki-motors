@@ -129,7 +129,7 @@ class __package_Custom_Data {
 		// register_post_type( 'custom_post_name', $custom_args );
 	}
 	
-	function addAddtlMimeType($mimes) {
+	function addAddtlMimeType( $mimes ) {
 		$new_mimes = array(
 			'eps'	=> 'application/eps',
 			'ai'	=> 'application/ai'
