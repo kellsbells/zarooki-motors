@@ -5,7 +5,7 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
-	minify = require('gulp-minify-css'),
+	cssnano = require( 'gulp-cssnano' ),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
@@ -100,9 +100,9 @@ gulp.task('default', ['sass', 'js', 'browserifyJs']);
 // Concatenate, minify, move style files
 gulp.task('buildCss', function() {
 	gulp.src([path.BUILD + '/*.css', path.BUILD + '/**/*.css'])
-		.pipe(rename({suffix: '.min'}))
-    	.pipe(minify())
-		.pipe(gulp.dest(path.DIST));
+		.pipe( rename({suffix: '.min'}) )
+		.pipe( cssnano() )
+		.pipe( gulp.dest( path.DIST ) );
 });
 
 // Minify, move script files
