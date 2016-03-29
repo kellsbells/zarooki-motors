@@ -1,0 +1,165 @@
+<?php
+/**
+ * __package Theme Options
+ * @version 0.1.0
+ */
+class __package_Custom_Data {
+	/**
+	 * Hidden meta prefix
+	 * @var string
+	 */
+	private static $prefix = '___package_';
+
+	/**
+	 * Option key, and option page slug
+	 * @var string
+	 */
+	private $key = '__package_options';
+
+	/**
+	 * Options page metabox id
+	 * @var string
+	 */
+	private $metabox_id = '__package_option_metabox';
+
+	/**
+	 * Options Page title
+	 * @var string
+	 */
+	protected $title = '';
+
+	/**
+	 * Options Page hook
+	 * @var string
+	 */
+	protected $options_page = '';
+
+	/**
+	 * Constructor
+	 * @since 0.1.0
+	 */
+	public function __construct() {
+		// Set our title
+		$this->title = __( 'Site Options', '__package' );
+	}
+
+	/**
+	 * Initiate our hooks
+	 * @since 0.1.0
+	 */
+	public function hooks() {
+		add_action( 'admin_init', array( $this, 'init' ) );
+		add_action( 'admin_menu', array( $this, 'add_options_page' ) );
+
+		add_action( 'init', array( $this, 'create_post_types' ) );
+
+		add_filter( 'upload_mimes', array( $this, 'addAddtlMimeType' ) );
+	}
+
+	/**
+	 * Register our setting to WP
+	 * @since 0.1.0
+	 */
+	public function init() {
+		register_setting( $this->key, $this->key );
+	}
+
+	/**
+	 * Public getter method for retrieving protected/private variables
+	 * @since 0.1.0
+	 * @param string	$field Field to retrieve
+	 * @return mixed	Field value or exception is thrown
+	 */
+	public function __get( $field ) {
+		// Allowed fields to retrieve
+		if ( in_array( $field, array( 'key', 'metabox_id', 'title', 'options_page' ), true ) ) {
+			return $this->{$field};
+		}
+		throw new Exception( 'Invalid property: ' . $field );
+	}
+
+	/**
+	 * Add menu options page
+	 * @since 0.1.0
+	 */
+	public function add_options_page() {
+		$this->options_page = add_menu_page( $this->title, $this->title, 'manage_options', $this->key, array( $this, 'admin_page_display' ) );
+		// Include CMB CSS in the head to avoid FOUT
+	}
+
+	/**
+	 * Create custom post types
+	 */
+	public function create_post_types() {
+		// Template - uncomment and reuse as necessary
+		// $custom_labels = array(
+		// 	'name'					=> _x( 'Customer Service Centers', 'post type general name', '__package' ),
+		// 	'singular_name'			=> _x( 'Customer Service Center', 'post type singular name', '__package' ),
+		// 	'menu_name'				=> _x( 'Customer Service', 'admin menu', '__package' ),
+		// 	'name_admin_bar'		=> _x( 'Customer Service Center', 'add new on admin bar', '__package' ),
+		// 	'add_new'				=> _x( 'Add New', 'Customer Service Center', '__package' ),
+		// 	'add_new_item'			=> __( 'Add New Customer Service Center', '__package' ),
+		// 	'new_item'				=> __( 'New Customer Service Center', '__package' ),
+		// 	'edit_item'				=> __( 'Edit Customer Service Center', '__package' ),
+		// 	'view_item'				=> __( 'View Customer Service Center', '__package' ),
+		// 	'all_items'				=> __( 'All Customer Service Centers', '__package' ),
+		// 	'search_items'			=> __( 'Search Customer Service Centers', '__package' ),
+		// 	'parent_item_colon'		=> __( 'Parent Customer Service Center:', '__package' ),
+		// 	'not_found'				=> __( 'No Customer Service Centers found.', '__package' ),
+		// 	'not_found_in_trash'	=> __( 'No Customer Service Centers found in Trash.', '__package' )
+		// );
+
+		// $custom_args = array(
+		// 	'labels'				=> $custom_labels,
+		// 	'description'			=> __( 'Description.', '__package' ),
+		// 	'publicly_queryable'	=> true,
+		// 	'show_ui'				=> true,
+		// 	'show_in_nav_menus'		=> true,
+		// 	'show_in_menu'			=> true,
+		// 	'query_var'				=> true,
+		// 	'rewrite'				=> array( 'slug' => 'custom-slug' ),
+		// 	'capability_type'		=> 'post',
+		// 	'has_archive'			=> false,
+		// 	'hierarchical'			=> false,
+		// 	'menu_position'			=> null,
+		// 	'menu_icon'				=> 'dashicons-location-alt',
+		// 	'supports'				=> array( 'title' )
+		// );
+
+		// register_post_type( 'custom_post_name', $custom_args );
+	}
+	
+	function addAddtlMimeType($mimes) {
+		$new_mimes = array(
+			'eps'	=> 'application/eps',
+			'ai'	=> 'application/ai'
+		);
+
+		return array_merge( $mimes, $new_mimes );
+	}
+}
+
+/**
+ * Helper function to get/return the BStar_Custom_Data object
+ * @since 0.1.0
+ * @return BStar_Custom_Data object
+ */
+function __package_custom_data() {
+	static $object = null;
+	if ( is_null( $object ) ) {
+		$object = new __package_Custom_Data();
+		$object->hooks();
+	}
+	return $object;
+}
+/**
+ * Wrapper function around cmb2_get_option
+ * @since 0.1.0
+ * @param string	$key Options array key
+ * @return mixed	Option value
+ */
+function __package_get_option( $key = '' ) {
+	return cmb2_get_option( bstar_custom_data()->key, $key );
+}
+// Get it started
+__package_custom_data();
