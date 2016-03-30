@@ -1,13 +1,13 @@
 <?php
 /**
- * _vtg functions and definitions
+ * __package functions and definitions
  *
- * @package _vtg
+ * @package __package
  */
 
 define( 'ASSETS_VERSION', '1.0.0' );
 
-if ( ! function_exists( '_vtg_setup' ) ) :
+if ( ! function_exists( '__package_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -19,10 +19,10 @@ function _vtg_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on _vtg, use a find and replace
-	 * to change '_vtg' to the name of your theme in all the template files
+	 * If you're building a theme based on this, use a find and replace
+	 * to change '__package' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( '_vtg', get_template_directory() . '/languages' );
+	load_theme_textdomain( '__package', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ function _vtg_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', '_vtg' ),
+		'primary' => esc_html__( 'Primary Menu', '__package' ),
 	) );
 
 	/*
@@ -99,7 +99,7 @@ add_action( 'after_setup_theme', '_vtg_content_width', 0 );
  */
 function _vtg_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', '_vtg' ),
+		'name'          => esc_html__( 'Sidebar', '__package' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -115,11 +115,11 @@ add_action( 'widgets_init', '_vtg_widgets_init' );
  */
 function _vtg_scripts() {
 	if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-		wp_enqueue_style( '_vtg-style-dev', get_stylesheet_directory_uri() . '/assets/build/styles.css', array(), ASSETS_VERSION );
-		wp_enqueue_script( '_vtg-scripts-dev', get_template_directory_uri() . '/assets/build/scripts.js', array(), ASSETS_VERSION, true );
+		wp_enqueue_style( '__package-style-dev', get_stylesheet_directory_uri() . '/assets/build/styles.css', array(), ASSETS_VERSION );
+		wp_enqueue_script( '__package-scripts-dev', get_template_directory_uri() . '/assets/build/scripts.js', array(), ASSETS_VERSION, true );
 	} else {
-		wp_enqueue_style( '_vtg-style', get_template_directory_uri() . '/assets/dist/styles.min.css', array(), ASSETS_VERSION );
-		wp_enqueue_script( '_vtg-scripts', get_template_directory_uri() . '/assets/dist/scripts.min.js', array(), ASSETS_VERSION, true );
+		wp_enqueue_style( '__package-style', get_template_directory_uri() . '/assets/dist/styles.min.css', array(), ASSETS_VERSION );
+		wp_enqueue_script( '__package-scripts', get_template_directory_uri() . '/assets/dist/scripts.min.js', array(), ASSETS_VERSION, true );
 	}
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
