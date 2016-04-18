@@ -13,8 +13,7 @@ var gulp = require( 'gulp' ),
 	notify = require( 'gulp-notify' ),
 	livereload = require( 'gulp-livereload' ),
 	imagemin = require( 'gulp-imagemin' ),
-	browserify = require( 'gulp-browserify' ),
-	isDevMode = true,
+	bower = require( 'gulp-bower' ),
 	path = {
 		WATCH_JS: [
 			'assets/js/*.js',
@@ -35,51 +34,69 @@ var gulp = require( 'gulp' ),
 
 
 /**
+ * Install Tasks
+ */
+
+// Install Bower components
+gulp.task( 'install', function() {
+	return bower( path.VENDOR )
+		.pipe( gulp.dest( path.VENDOR ) );
+} );
+
+
+/**
  * Development Tasks
  */
 
 // Compile Sass files
 gulp.task( 'sass', function() {
-	gulp.src( path.WATCH_CSS )
+	gulp.src( [ path.CSS + '*.scss', path.CSS + '**/*.scss' ] )
 		.pipe( sass()
-			.on( 'error', notify.onError({
+			.on( 'error', notify.onError( {
 				message: 'Sass failed. Check console for errors'
-			}) )
+			} ) )
 			.on( 'error', sass.logError ) )
-		.pipe( prefix( 'last 1 version', '> 1%', 'ie >= 9' ) )
+		.pipe( prefix({ browsers: '> 1%, not ie <=8' }) )
 		.pipe( gulp.dest( path.BUILD ) )
 		.pipe( livereload() )
 		.pipe( notify( 'Sass successfully compiled' ) );
-});
+} );
 
 // Lint JS
 gulp.task( 'lint', function() {
-	gulp.src( path.WATCH_JS )
-		.pipe( jsHint() )
-		.pipe( jsHint.reporter( 'default' ) )
+	gulp.src( [ path.JS + '*.js', path.JS + '**/*.js' ] )
+		.pipe( jshint() )
+		.pipe( jshint.reporter( 'default' ) )
 			.on( 'error', notify.onError( function( file ) {
 				if ( !file.jshint.success ) {
 					return 'JSHint failed. Check console for errors';
 				}
-			}) );
-});
-
-// Minify, move script files
-gulp.task( 'browserifyJs', ['lint'], function() {
-	gulp.src( path.JS + 'entry.js' )
-		.pipe( browserify({
-			insertGlobals: true,
-			debug: isDevMode
-		}) )
-		.pipe( rename( 'scripts.js' ) )
-		.pipe( gulp.dest( path.BUILD ) );
-});
+			} ) );
+} );
 
 // Compile JS
-gulp.task( 'js', ['lint'], function() {
-	gulp.src( ['!assets/js/entry.js'].concat( path.WATCH_JS ) )
-		.pipe( gulp.dest( path.BUILD ) );
-});
+gulp.task( 'js', [ 'lint' ], function() {
+	gulp.src( path.WATCH_JS )
+		.pipe( concat( 'scripts.js' ) )
+		.pipe( livereload() )
+		.pipe( gulp.dest( path.BUILD ) )
+		.pipe( notify( 'JS successfully compiled' ) );
+} );
+
+// Build Angular App (Optional)
+/* gulp.task( 'ngApp', function() {
+	// ng-annotate, concatenate, minify
+	gulp.src( [ path.NG_APP ] )
+		.pipe( concat( 'dashboard-app.js' ) )
+		.pipe( ngAnnotate() )
+			.on( 'error', notify.onError( 'Error: <%= error.message %>' ) )
+		.pipe( gulp.dest( path.BUILD ) )
+		.pipe( livereload() )
+		.pipe( notify( 'App successfully compiled' ) );
+} ); */
+
+// Default
+gulp.task( 'default', [ 'sass', 'js' ] );
 
 
 /**
@@ -92,43 +109,29 @@ gulp.task( 'buildCss', function() {
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( cssnano() )
 		.pipe( gulp.dest( path.DIST ) );
-});
+} );
 
-// Minify, move script files
-gulp.task( 'buildBrowserifyJs', ['lint'], function() {
-	gulp.src( path.JS + 'entry.js' )
-		.pipe( browserify({
-			insertGlobals: true,
-			debug: !isDevMode
-		}) )
-		.pipe( rename( 'scripts.min.js' ) )
-		.pipe( uglify() )
-		.pipe( gulp.dest( path.DIST ) );
-});
-
-gulp.task( 'buildJs', ['lint', 'buildBrowserifyJs'], function() {
-	gulp.src( ['!assets/js/entry.js'].concat( path.WATCH_JS ) )
+// Concatenate, minify, move script files
+gulp.task( 'buildJs', function() {
+	gulp.src( [ path.BUILD + '/*.js', path.BUILD + '/**/*.js' ] )
 		.pipe( rename({ suffix: '.min' }) )
 		.pipe( uglify() )
 		.pipe( gulp.dest( path.DIST ) );
-});
+} );
 
 // Optimize images
 gulp.task( 'compressImgs', function() {
 	return gulp.src( [ path.IMG + '*.*', path.IMG + '**/*.*' ] )
-        .pipe( imagemin({ progressive: true }) )
-        .pipe( gulp.dest( path.IMG ) );
-});
+		.pipe( imagemin() )
+		.pipe( gulp.dest( path.IMG ) );
+} );
 
-
-
-// Project Flow Tasks
-gulp.task( 'default', ['sass', 'js', 'browserifyJs'] );
+// Build tasks
 gulp.task( 'watch', function() {
-	gulp.watch( path.WATCH_JS, ['js', 'browserifyJs'] );
-	gulp.watch( path.WATCH_CSS, ['sass'] );
-
+	gulp.watch( path.WATCH_JS, [ 'js' ] );
+	gulp.watch( path.WATCH_CSS, [ 'sass' ] );
+	
 	livereload.listen();
-});
-gulp.task( 'stage', ['buildCss', 'buildJs'] );
-gulp.task( 'prod', ['buildCss', 'buildJs', 'compressImgs'] );
+} );
+gulp.task( 'stage', [ 'buildCss', 'buildJs' ] );
+gulp.task( 'prod', [ 'buildCss', 'buildJs', 'compressImgs' ] );
