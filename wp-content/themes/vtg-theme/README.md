@@ -21,15 +21,15 @@ This theme is namespaced with the generic tag `__package` - when starting a new 
     @define('WP_CONTENT_DIR', dirname(__FILE__).'/wp-content');
     ````
 7. Ensure `WP_DEBUG` constant in `wp-config.php` is set to `true`: `define( 'WP_DEBUG', true );`
-8. SFTP into the staging server (with the credentials found below) and pull down `/wp-content/plugins` and `/wp-content/uploads`.
-9. From the project root, create a local copy of `wp-content/uploads`: `mkdir wp-content/uploads` then `chmod 777 wp-content/uploads` followed by `find ./wp-content/uploads/ -type d -exec chmod 0777 {} \;`
+8. SFTP into the staging server (with the credentials found below) and pull down `/wp-content/plugins`.
 10. Run `git submodule update --init --recursive` from the project root to install submodules (ie CMB2)
 11. Access the WPEngine account phpMyAdmin and export the database 
 12. Import SQL into local database and update `wp-config.php` with local database credentials and secret keys. Make sure to also update the `$table_prefix` variable.
-13. From within the theme root, install Node.js dependencies: `npm install`
-14. From within the theme root, install front-end dependencies: `gulp install`
-15. Update your Git files by [following these instructions](https://github.com/voltagead/bluestar/wiki/Rebase-Setup).
-16. Set up .htaccess and update the permissions: `chmod 666 .htaccess`
+13. Access phpMyAdmin on your local machine and navigate to the `wp_options` table. Search for `upload_url_path` and fill in the path to the production server `ex: http://www.bigchill.com/wp-content/uploads`. This forces WP to display images from production so you don't have to copy them to local!
+14. From within the theme root, install Node.js dependencies: `npm install`
+15. From within the theme root, install front-end dependencies: `gulp install`
+16. Update your Git files by [following these instructions](https://github.com/voltagead/bluestar/wiki/Rebase-Setup).
+17. Set up .htaccess and update the permissions: `chmod 666 .htaccess`
 
 
 ## Development
