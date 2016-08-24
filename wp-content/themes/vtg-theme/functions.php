@@ -128,6 +128,12 @@ function _vtg_scripts() {
 }
 add_action( 'wp_enqueue_scripts', '_vtg_scripts' );
 
+show_admin_bar( false );
+
+/**
+ * CMB2 plugin
+ */
+require get_template_directory() . '/../../plugins/CMB2/init.php';
 /**
  * Custom template tags for this theme.
  */

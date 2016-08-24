@@ -92,41 +92,41 @@ class __package_Custom_Data {
 	 */
 	public function create_post_types() {
 		// Template - uncomment and reuse as necessary
-		// $custom_labels = array(
-		// 	'name'					=> _x( 'Customer Service Centers', 'post type general name', '__package' ),
-		// 	'singular_name'			=> _x( 'Customer Service Center', 'post type singular name', '__package' ),
-		// 	'menu_name'				=> _x( 'Customer Service', 'admin menu', '__package' ),
-		// 	'name_admin_bar'		=> _x( 'Customer Service Center', 'add new on admin bar', '__package' ),
-		// 	'add_new'				=> _x( 'Add New', 'Customer Service Center', '__package' ),
-		// 	'add_new_item'			=> __( 'Add New Customer Service Center', '__package' ),
-		// 	'new_item'				=> __( 'New Customer Service Center', '__package' ),
-		// 	'edit_item'				=> __( 'Edit Customer Service Center', '__package' ),
-		// 	'view_item'				=> __( 'View Customer Service Center', '__package' ),
-		// 	'all_items'				=> __( 'All Customer Service Centers', '__package' ),
-		// 	'search_items'			=> __( 'Search Customer Service Centers', '__package' ),
-		// 	'parent_item_colon'		=> __( 'Parent Customer Service Center:', '__package' ),
-		// 	'not_found'				=> __( 'No Customer Service Centers found.', '__package' ),
-		// 	'not_found_in_trash'	=> __( 'No Customer Service Centers found in Trash.', '__package' )
-		// );
+		$vehicle_labels = array(
+			'name'					=> _x( 'Vehicles', 'post type general name', '__package' ),
+			'singular_name'			=> _x( 'Vehicle', 'post type singular name', '__package' ),
+			'menu_name'				=> _x( 'Available Vehicles', 'admin menu', '__package' ),
+			'name_admin_bar'		=> _x( 'Vehicle', 'add new on admin bar', '__package' ),
+			'add_new'				=> _x( 'Add New', 'Vehicle', '__package' ),
+			'add_new_item'			=> __( 'Add New Vehicle', '__package' ),
+			'new_item'				=> __( 'New Vehicle', '__package' ),
+			'edit_item'				=> __( 'Edit Vehicle', '__package' ),
+			'view_item'				=> __( 'View Vehicle', '__package' ),
+			'all_items'				=> __( 'All Vehicles', '__package' ),
+			'search_items'			=> __( 'Search Vehicles', '__package' ),
+			'parent_item_colon'		=> __( 'Parent Vehicle:', '__package' ),
+			'not_found'				=> __( 'No Vehicles found.', '__package' ),
+			'not_found_in_trash'	=> __( 'No Vehicles found in Trash.', '__package' )
+		);
 
-		// $custom_args = array(
-		// 	'labels'				=> $custom_labels,
-		// 	'description'			=> __( 'Description.', '__package' ),
-		// 	'publicly_queryable'	=> true,
-		// 	'show_ui'				=> true,
-		// 	'show_in_nav_menus'		=> true,
-		// 	'show_in_menu'			=> true,
-		// 	'query_var'				=> true,
-		// 	'rewrite'				=> array( 'slug' => 'custom-slug' ),
-		// 	'capability_type'		=> 'post',
-		// 	'has_archive'			=> false,
-		// 	'hierarchical'			=> false,
-		// 	'menu_position'			=> null,
-		// 	'menu_icon'				=> 'dashicons-location-alt',
-		// 	'supports'				=> array( 'title' )
-		// );
+		$vehicle_args = array(
+			'labels'				=> $vehicle_labels,
+			'description'			=> __( 'Description.', '__package' ),
+			'publicly_queryable'	=> true,
+			'show_ui'				=> true,
+			'show_in_nav_menus'		=> true,
+			'show_in_menu'			=> true,
+			'query_var'				=> true,
+			'rewrite'				=> array( 'slug' => 'vehicle-slug' ),
+			'capability_type'		=> 'post',
+			'has_archive'			=> false,
+			'hierarchical'			=> false,
+			'menu_position'			=> null,
+			'menu_icon'				=> 'dashicons-location-alt',
+			'supports'				=> array( 'title' )
+		);
 
-		// register_post_type( 'custom_post_name', $custom_args );
+		register_post_type( 'vehicle_post_name', $vehicle_args );
 	}
 	
 	function addAddtlMimeType( $mimes ) {
