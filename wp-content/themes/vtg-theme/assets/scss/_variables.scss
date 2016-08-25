@@ -18,7 +18,8 @@ $space: 20px;
 
 $white: #FFF;
 $black: #000;
-$color-primary: $black; 
+$color-primary: #A20C0B; 
+$color-secondary: #45403D;
 
 
 
@@ -28,7 +29,9 @@ $color-primary: $black;
 // Fonts
 // -----
 
-$font-default: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-primary: 'Fjalla One', sans-serif;
+$font-secondary: 'Lato', sans-serif;
+
 
 
 
@@ -54,10 +57,8 @@ $max-width: 1200px;
 
 $susy: (
 	columns: 12,
-	container: $max-width,
-	gutters: 1/2
+	gutters: 1/2,
 );
-
 
 
 

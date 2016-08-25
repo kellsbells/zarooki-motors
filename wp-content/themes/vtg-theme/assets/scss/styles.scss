@@ -8,7 +8,7 @@
 @import "../vendor/susy/sass/susy";
 
 // Normalize.css
-@import "../vendor/normalize-scss/normalize.scss";
+// @import "../vendor/normalize-scss/normalize.scss";
 
 // Variables
 @import "variables";
@@ -48,3 +48,4 @@
 
 // Template-Specific Styles
 @import "templates/_template-name.scss";
+@import "templates/_home.scss";

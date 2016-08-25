@@ -3,28 +3,224 @@
 //--------------------------------------------------------------
 
 
+
+
 .home {
 
 	.hero {
+		position: relative;
+		line-height: 0;
+
 		.hero-image img {
 			width: 100%;
+			max-height: 500px;
+		}
+
+		.hero-text {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 25%;
+			left: 0;
+		}
+
+		.hero-text h1 {
+			color: #FFF;
+			text-align: center;
+			font-size: 90px;
+			text-transform: uppercase;
+			font-family: $font-primary;
+		}
+
+		.hero-arrow-container {
+			width: 100%;
+			position: absolute;
+			bottom: -30px;
+		}
+
+		.hero-arrow {
+			margin: 0 auto;
+			width: 60px;
+			height: 60px;
+			background-color: $color-secondary;
+			border: 3px solid $white;
+			border-radius: 100%;
+			padding: 12px 13px;
+			color: $white;
+			
+
+			span {
+				font-size: 32px;
+			}
 		}
 	}
 
-	.sub-hero {
+	// .sub-hero {
+	// 	background-color: $color-secondary;
+	// 	padding: 20px 0;
+	// 	color: $white;
+	// 	text-align: center;
+	// }
 
+	.about {
+		background-color: $color-primary;
+		color: #FFF;
+		text-align: center;
+		padding: 50px 0;
+
+		@include breakpoint ($break-medium) {
+			padding: 100px 0;
+		}
+
+		.row {
+			@include clearfix;
+			padding: 60px 0 0 0;
+		}
+
+		.col-3-text {
+			@include span (12 of 12);
+			@include clearfix;
+
+			@include breakpoint ($break-medium) {
+				@include gallery (4 of 12);
+			}
+		}
+
+		span {
+			font-size: 32px;
+		}
 	}
 
-	.cars {
+	.available-cars {
+		color: $color-secondary;
+		padding: 50px 0;
 
+		@include breakpoint ($break-medium) {
+			padding: 100px 0;
+		}
+
+		h2 {
+			text-align: center;
+			font-family: $font-primary;
+		}
+
+		.row {
+			@include clearfix;
+			margin: 0 0 40px;
+		}
+
+		.car-filters {
+			@include span (12 of 12);
+			@include clearfix;
+			margin: 5px 0;
+
+			@include breakpoint ($break-medium) {
+				@include gallery (4 of 12);
+				margin: auto;
+			}
+		}
+
+		.cars {
+			@include clearfix;
+		}
+
+		.car {
+			@include gallery (6 of 12);
+			margin: 10px auto;
+
+			@include breakpoint ($break-medium) {
+				@include gallery (3 of 12);
+				margin: 10px auto;
+			}
+
+			h3 {
+				margin: 10px auto;
+			}
+
+			.car-title {
+				font-family: $font-primary;
+			}
+
+			.car-price {
+				color: $color-primary;
+			}
+		}
 	}
 
 	.search-submission {
+		background-color: $color-primary;
+		color: #FFF;
+		padding: 50px 0;
 
+		@include breakpoint ($break-medium) {
+			padding: 100px 0;
+		}
+
+		h2,
+		p {
+			text-align: center;
+		}
+
+		h2 {
+			font-family: $font-primary;
+		}
+
+		form {
+			text-align: center;
+		}
+
+		input {
+			margin: 5px auto;
+			padding: 5px;
+			font-size: 18px;
+			font-size: 1.8rem;
+			font-family: $font-secondary;
+			color: $color-secondary;
+		}
+
+		input[type="submit"] {
+			color: $white;
+			padding: 10px;
+			font-family: $font-primary;
+		}
+
+		.row {
+			@include clearfix;
+		}
+
+		.col-3-input {
+			@include gallery (4 of 12);
+		}
+
+		.col-2-input {
+			@include gallery (6 of 12);
+		}
+
+		textarea {
+			@include clearfix;
+			width: 100%;
+			margin: 5px auto;
+			padding: 5px;
+			font-size: 18px;
+			font-size: 1.8rem;
+			font-family: $font-secondary;
+		}
 	}
 
 	.contact {
+		background-color: $color-secondary;
+		color: $white;
+		padding: 50px 0;
 
+		@include breakpoint ($break-medium) {
+			padding: 100px 0;
+		}
+
+		h2 {
+			font-family: $font-primary;
+			text-align: center;
+		}
 	}
 
 }
+
