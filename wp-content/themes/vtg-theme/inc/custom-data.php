@@ -91,42 +91,48 @@ class __package_Custom_Data {
 	 * Create custom post types
 	 */
 	public function create_post_types() {
-		// Template - uncomment and reuse as necessary
-		$vehicle_labels = array(
-			'name'					=> _x( 'Vehicles', 'post type general name', '__package' ),
-			'singular_name'			=> _x( 'Vehicle', 'post type singular name', '__package' ),
-			'menu_name'				=> _x( 'Available Vehicles', 'admin menu', '__package' ),
-			'name_admin_bar'		=> _x( 'Vehicle', 'add new on admin bar', '__package' ),
-			'add_new'				=> _x( 'Add New', 'Vehicle', '__package' ),
-			'add_new_item'			=> __( 'Add New Vehicle', '__package' ),
-			'new_item'				=> __( 'New Vehicle', '__package' ),
-			'edit_item'				=> __( 'Edit Vehicle', '__package' ),
-			'view_item'				=> __( 'View Vehicle', '__package' ),
-			'all_items'				=> __( 'All Vehicles', '__package' ),
-			'search_items'			=> __( 'Search Vehicles', '__package' ),
-			'parent_item_colon'		=> __( 'Parent Vehicle:', '__package' ),
-			'not_found'				=> __( 'No Vehicles found.', '__package' ),
-			'not_found_in_trash'	=> __( 'No Vehicles found in Trash.', '__package' )
+
+		// Playlists post type
+		$vehicles_labels = array(
+			'add_new'            => _x( 'Add New', 'vehicle', 'ps' ),
+			'add_new_item'       => __( 'Add New Vehicle', 'ps' ),
+			'all_items'          => __( 'All Vehicles', 'ps' ),
+			'edit_item'          => __( 'Edit Vehicle', 'ps' ),
+			'menu_name'          => _x( 'Vehicles', 'admin menu', 'ps' ),
+			'name_admin_bar'     => _x( 'Vehicle', 'add new on admin bar', 'ps' ),
+			'name'               => _x( 'Vehicles', 'post type general name', 'ps' ),
+			'new_item'           => __( 'New Vehicle', 'ps' ),
+			'not_found'          => __( 'No Vehicles found.', 'ps' ),
+			'not_found_in_trash' => __( 'No Vehicles found in Trash.', 'ps' ),
+			'parent_item_colon'  => __( 'Parent Vehicle:', 'ps' ),
+			'search_items'       => __( 'Search Vehicles', 'ps' ),
+			'singular_name'      => _x( 'Vehicle', 'post type singular name', 'ps' ),
+			'view_item'          => __( 'View Vehicle', 'ps' ),
 		);
 
-		$vehicle_args = array(
-			'labels'				=> $vehicle_labels,
-			'description'			=> __( 'Description.', '__package' ),
-			'publicly_queryable'	=> true,
-			'show_ui'				=> true,
-			'show_in_nav_menus'		=> true,
-			'show_in_menu'			=> true,
-			'query_var'				=> true,
-			'rewrite'				=> array( 'slug' => 'vehicle-slug' ),
-			'capability_type'		=> 'post',
-			'has_archive'			=> false,
-			'hierarchical'			=> false,
-			'menu_position'			=> null,
-			'menu_icon'				=> 'dashicons-location-alt',
-			'supports'				=> array( 'title' )
+		$vehicles_args = array(
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'labels'             => $vehicles_labels,
+			'menu_icon'          => 'dashicons-admin-users',
+			'menu_position'      => null,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'query_var'          => true,
+			'rewrite'            => array(
+				'slug' => 'vehicles',
+			),
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'supports'           => array(
+				'editor',
+				'thumbnail',
+				'title',
+			),
 		);
 
-		register_post_type( 'vehicle_post_name', $vehicle_args );
+		register_post_type( 'vehicles', $vehicles_args );
 	}
 	
 	function addAddtlMimeType( $mimes ) {

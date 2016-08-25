@@ -71,63 +71,61 @@ get_header();
 				<button class="button secondary car-filters">View Trucks</button>
 				<button class="button secondary car-filters">View SUVs</button>
 			</div>	
+
+
 			<div class="cars">
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
-				<div class="car">
-					<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-					<h3 class="car-title">2016 Ford Focus</h3>
-					<h3 class="car-price">$22,000</h3>
-					<p class="car-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua.</p>
-					<button class="button primary">View More</button>
-				</div>
+				<?php
+				  	/* Retrieve all posts of type vehicle */
+				  	$vehicle_args = array(
+				  	    'posts_per_page'   => -1,
+				  	    'orderby'          => 'title',
+				  	    'order'            => 'ASC',
+				  	    'post_type'        => 'vehicles'
+				  	);
+				  	
+				  	$vehicles_query = new WP_Query( $vehicle_args );
+				?>
+
+				<?php
+					if( $vehicles_query->have_posts() ): ?>
+
+						<?php while( $vehicles_query->have_posts() ):
+							$vehicles_query->the_post();
+
+							$custom_meta = get_post_meta( get_the_ID() );
+							$imagedir = get_stylesheet_directory_uri() . "/assets/img";
+
+							function get_safe_meta( $key ) {
+								global $custom_meta;
+
+								return ( isset( $custom_meta[ $key ] ) && isset( $custom_meta[ $key ][0] ))
+								? $custom_meta[ $key ][0]
+								: "";
+							}
+
+							$vehicleyear = get_safe_meta( '_vtg_vehicle_year' );
+							$vehicleprice = get_safe_meta( '_vtg_vehicle_price' );
+							$vehicledescription = get_safe_meta( '_vtg_vehicle_description' );
+							$vehiclemake = get_safe_meta( '_vtg_vehicle_make' );
+
+							get_the_ID(); /* or */ $post->ID;      
+
+				?>
+
+								<div class="car"">
+									<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
+									<!-- <?php //echo the_post_thumbnail( 'attorney_thumb' ); ?> -->
+									<h3 class="car-title"><?php the_title(); ?></h3>
+									<h3 class="car-price"><?php echo $vehicleprice; ?></h3>
+									<p class="car-description"><?php echo $vehicledescription; ?></p>
+									<a href="<?php echo the_permalink(); ?>" class="button primary">View More</a>
+								</div>
+				<?php
+						break;
+						endwhile;
+					endif;
+				?>
+				<?php wp_reset_query(); ?>
 			</div>
 		</div>
 	</section>

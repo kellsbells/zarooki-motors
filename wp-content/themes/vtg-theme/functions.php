@@ -134,6 +134,12 @@ show_admin_bar( false );
  * CMB2 plugin
  */
 require get_template_directory() . '/../../plugins/CMB2/init.php';
+
+/**
+ * Custom metaboxes
+ */
+require get_template_directory() . '/inc/cmb2-metaboxes.php';
+
 /**
  * Custom template tags for this theme.
  */
