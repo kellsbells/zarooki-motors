@@ -74,6 +74,7 @@ get_header();
 
 
 			<div class="cars">
+
 				<?php
 				  	/* Retrieve all posts of type vehicle */
 				  	$vehicle_args = array(
@@ -84,49 +85,48 @@ get_header();
 				  	);
 				  	
 				  	$vehicles_query = new WP_Query( $vehicle_args );
+				  	if ( $vehicles_query->have_posts() ):
 				?>
+		    
+			    <?php
+			      	while( $vehicles_query->have_posts() ):
+			      	  	$vehicles_query->the_post();
+			      	  	
+			      	  	$custom_meta = get_post_meta( get_the_ID() );
+						$imagedir = get_stylesheet_directory_uri() . "/assets/img";
 
-				<?php
-					if( $vehicles_query->have_posts() ): ?>
+						$vehicleyear = ( isset( $custom_meta['_vtg_vehicle_year'] ) && isset( $custom_meta['_vtg_vehicle_year'][0] ))
+						    ? $custom_meta['_vtg_vehicle_year'][0]
+						    : '';
 
-						<?php while( $vehicles_query->have_posts() ):
-							$vehicles_query->the_post();
+						$vehicleprice = ( isset( $custom_meta['_vtg_vehicle_price'] ) && isset( $custom_meta['_vtg_vehicle_price'][0] ))
+						    ? $custom_meta['_vtg_vehicle_price'][0]
+						    : '';
 
-							$custom_meta = get_post_meta( get_the_ID() );
-							$imagedir = get_stylesheet_directory_uri() . "/assets/img";
+						$vehicledescription = ( isset( $custom_meta['_vtg_vehicle_description'] ) && isset( $custom_meta['_vtg_vehicle_description'][0] ))
+						    ? $custom_meta['_vtg_vehicle_description'][0]
+						    : '';        
 
-							function get_safe_meta( $key ) {
-								global $custom_meta;
+						get_the_ID(); /* or */ $post->ID;  
 
-								return ( isset( $custom_meta[ $key ] ) && isset( $custom_meta[ $key ][0] ))
-								? $custom_meta[ $key ][0]
-								: "";
-							}
+			    ?>
+		          	<div class="car"">
+						<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
+						<!-- <?php //echo the_post_thumbnail( 'vehicle_thumb' ); ?> -->
+						<h3 class="car-title"><?php the_title(); ?></h3>
+						<h3 class="car-price"><?php echo $vehicleprice; ?></h3>
+						<p class="car-description"><?php echo $vehicledescription; ?></p>
+						<a href="<?php echo the_permalink(); ?>" class="button primary">View More</a>
+					</div>
+		      	<?php
+		        	endwhile;
+		        	wp_reset_postdata();
+		     	?>
 
-							$vehicleyear = get_safe_meta( '_vtg_vehicle_year' );
-							$vehicleprice = get_safe_meta( '_vtg_vehicle_price' );
-							$vehicledescription = get_safe_meta( '_vtg_vehicle_description' );
-							$vehiclemake = get_safe_meta( '_vtg_vehicle_make' );
+		    </div>	
 
-							get_the_ID(); /* or */ $post->ID;      
+			<?php endif; ?>
 
-				?>
-
-								<div class="car"">
-									<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-									<!-- <?php //echo the_post_thumbnail( 'attorney_thumb' ); ?> -->
-									<h3 class="car-title"><?php the_title(); ?></h3>
-									<h3 class="car-price"><?php echo $vehicleprice; ?></h3>
-									<p class="car-description"><?php echo $vehicledescription; ?></p>
-									<a href="<?php echo the_permalink(); ?>" class="button primary">View More</a>
-								</div>
-				<?php
-						break;
-						endwhile;
-					endif;
-				?>
-				<?php wp_reset_query(); ?>
-			</div>
 		</div>
 	</section>
 	<section class="search-submission">
