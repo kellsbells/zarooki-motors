@@ -130,6 +130,9 @@ add_action( 'wp_enqueue_scripts', '_vtg_scripts' );
 
 show_admin_bar( false );
 
+
+add_filter('fg_post_types', 'add_featured_galleries_to_ctp' );
+
 /**
  * CMB2 plugin
  */

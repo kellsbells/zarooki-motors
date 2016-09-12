@@ -145,6 +145,12 @@ class __package_Custom_Data {
 	}
 }
 
+function add_featured_galleries_to_ctp( $post_types ) {
+    array_push($post_types, 'vehicles'); // ($post_types comes in as array('post','page'). If you don't want FGs on those, you can just return a custom array instead of adding to it. )	
+    return $post_types;
+}
+add_filter('fg_post_types', 'add_featured_galleries_to_ctp' );
+
 /**
  * Helper function to get/return the BStar_Custom_Data object
  * @since 0.1.0

@@ -28,10 +28,11 @@
 		.hero-text h1 {
 			color: #FFF;
 			text-align: center;
-			font-size: 50px;
+			font-size: 40px;
 			text-transform: uppercase;
 			font-family: $font-primary;
 			padding-top: 33%;
+			text-shadow: 1px 1px 1px #000;
 
 			@include breakpoint ($break-small) {
 				font-size: 50px;
@@ -68,8 +69,8 @@
 	}
 
 	.available-cars {
-		color: $color-secondary;
-		padding: 50px 0;
+		color: $color-primary;
+		padding: 30px 0;
 
 		@include breakpoint ($break-medium) {
 			padding: 100px 0;
@@ -115,6 +116,7 @@
 
 			.car-title {
 				font-family: $font-primary;
+				color: $color-secondary;
 			}
 
 			.car-price {
@@ -123,6 +125,7 @@
 
 			.car-description {
 				padding-bottom: 10px;
+				color: $color-secondary;
 			}
 		}
 	}
@@ -302,3 +305,23 @@
 
 }
 
+
+.content-area {
+	padding: 100px 0 60px 0;
+
+	.entry-title {
+		
+		margin: 0;
+	}
+}
+
+
+.single-vehicle {
+	.vehicle-images {
+		@include gallery (6 of 12);
+	}
+
+	.vehicle-text {
+		@include gallery (6 of 12);
+	}
+}

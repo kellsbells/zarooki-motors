@@ -501,10 +501,11 @@ footer {
   .home .hero .hero-text h1 {
     color: #FFF;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     text-transform: uppercase;
     font-family: "Fjalla One", sans-serif;
-    padding-top: 33%; }
+    padding-top: 33%;
+    text-shadow: 1px 1px 1px #000; }
     @media (min-width: 480px) {
       .home .hero .hero-text h1 {
         font-size: 50px;
@@ -530,8 +531,8 @@ footer {
       font-size: 32px; }
 
 .home .available-cars {
-  color: #45403D;
-  padding: 50px 0; }
+  color: #A20C0B;
+  padding: 30px 0; }
   @media (min-width: 720px) {
     .home .available-cars {
       padding: 100px 0; } }
@@ -617,11 +618,13 @@ footer {
     .home .available-cars .car h3 {
       margin: 10px auto; }
     .home .available-cars .car .car-title {
-      font-family: "Fjalla One", sans-serif; }
+      font-family: "Fjalla One", sans-serif;
+      color: #45403D; }
     .home .available-cars .car .car-price {
       color: #A20C0B; }
     .home .available-cars .car .car-description {
-      padding-bottom: 10px; }
+      padding-bottom: 10px;
+      color: #45403D; }
 
 .home .about {
   background-color: #45403D;
@@ -825,3 +828,34 @@ footer {
   position: absolute; }
   .home .slick-dots button {
     display: none; }
+
+.content-area {
+  padding: 100px 0 60px 0; }
+  .content-area .entry-title {
+    margin: 0; }
+
+.single-vehicle .vehicle-images {
+  width: 48.57143%;
+  float: left; }
+  .single-vehicle .vehicle-images:nth-child(2n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0; }
+  .single-vehicle .vehicle-images:nth-child(2n + 2) {
+    margin-left: 51.42857%;
+    margin-right: -100%;
+    clear: none; }
+
+.single-vehicle .vehicle-text {
+  width: 48.57143%;
+  float: left; }
+  .single-vehicle .vehicle-text:nth-child(2n + 1) {
+    margin-left: 0;
+    margin-right: -100%;
+    clear: both;
+    margin-left: 0; }
+  .single-vehicle .vehicle-text:nth-child(2n + 2) {
+    margin-left: 51.42857%;
+    margin-right: -100%;
+    clear: none; }

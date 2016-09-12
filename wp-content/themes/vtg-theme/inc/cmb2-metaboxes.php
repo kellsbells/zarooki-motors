@@ -40,6 +40,13 @@ class vtg_cmb2_metaboxes {
 
 		/////////////////////// Meta Boxes
 
+		$vehicle_box->add_field( array(
+			'name'        => __( 'Images', 'vtg' ),
+			'desc'        => __( 'Add Images of the Vehicle', 'vtg' ),
+			'id'          => self::$prefix . 'vehicle_image_list',
+			'type'        => 'file_list',
+		) );
+
 
 		$vehicle_box->add_field( array(
 			'name'        => __( 'Price', 'vtg' ),

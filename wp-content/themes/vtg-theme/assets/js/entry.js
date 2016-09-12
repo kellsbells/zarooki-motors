@@ -14,6 +14,7 @@ var Site = {
 		Site.challengeElement = document.querySelector('.breakpoint-context');
 		Site.challengeContext();
 		// Site.slick();
+		Site.imageGallery();
 
 		/**
 		 * Check breakpoint context on window resizing
@@ -61,13 +62,25 @@ var Site = {
 
 	slick: function() {
 		$('.js-hero-slider').slick({
-				dots: false,
-				arrows: false,
-  				infinite: false,
-  				autoplay: true,
-  				autoplaySpeed: 5000,
-			});
+			dots: false,
+			arrows: false,
+  			infinite: false,
+  			autoplay: true,
+  			autoplaySpeed: 5000,
+		});
 	},
+
+	imageGallery: function() {
+		if ( $('.image-gallery').children().length > 1 ) {
+		    $('.js-image-gallery').slick({
+				dots: false,
+				infinite: true,
+				speed: 300,
+				slidesToShow: 1,
+				adaptiveHeight: true
+			});
+		}
+	}
 };
 
 $(document).ready(function() {

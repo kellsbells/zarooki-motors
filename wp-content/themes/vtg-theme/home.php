@@ -90,8 +90,16 @@ get_header();
 
 			    ?>
 		          	<div class="car">
-						<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
-						<!-- <?php //echo the_post_thumbnail( 'vehicle_thumb' ); ?> -->
+						
+		          		<?php $galleryArray = get_post_gallery_ids($post->ID,1); ?>
+
+						<?php foreach ($galleryArray as $id) { ?>
+
+						    <img src="<?php echo wp_get_attachment_url( $id ); ?>">
+
+						<?php } ?>
+
+
 						<h3 class="car-title"><?php the_title(); ?></h3>
 						<h3 class="car-price"><?php echo $vehicleprice; ?></h3>
 						<p class="car-description"><?php echo $vehicledescription; ?></p>
