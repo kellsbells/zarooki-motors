@@ -42,39 +42,6 @@ get_header();
 			</div>	
 		</div> -->
 	</section>
-	<section class="about">
-		<div class="container">
-			<h3>We believe in our customers...</h3>
-			<p>Here at Zarooki Motors we belive that the customer comes first. That's why we are constantly striving to give you the best car buying experience possible. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur.</p>
-			<div class="row">
-				<div class="col-3-text">
-					<span class="fa fa-car"></span>
-					<h4>Trusted Dealer</h4>
-					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-				</div>
-				<div class="col-3-text">
-					<span class="fa fa-wrench"></span>
-					<h4>Expert Mechanic</h4>
-					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-				</div>
-				<div class="col-3-text">
-					<span class="fa fa-users"></span>
-					<h4>Your all-in-one Resource</h4>
-					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-				</div>
-			</div>	
-		</div>
-	</section>
 	<section id="available-vehicles" class="available-cars">
 		<div class="container">
 			<h2>Available Cars</h2>
@@ -141,6 +108,40 @@ get_header();
 
 		</div>
 	</section>
+	<section class="about">
+		<div class="container">
+			<h3>We believe in our customers...</h3>
+			<p>Here at Zarooki Motors we belive that the customer comes first. That's why we are constantly striving to give you the best car buying experience possible. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur.</p>
+			<div class="row">
+				<div class="col-3-text">
+					<span class="fa fa-car"></span>
+					<h4>Trusted Dealer</h4>
+					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+				</div>
+				<div class="col-3-text">
+					<span class="fa fa-wrench"></span>
+					<h4>Expert Mechanic</h4>
+					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+				</div>
+				<div class="col-3-text">
+					<span class="fa fa-users"></span>
+					<h4>Your all-in-one Resource</h4>
+					<p class="tiny-p">Here at Zarooki Motors we pride ourselves on being Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+				</div>
+			</div>	
+		</div>
+	</section>
+	
 	<section class="search-submission">
 		<div class="container">
 			<h2>Looking for Something Specific?</h2>

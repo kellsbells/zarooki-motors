@@ -99,6 +99,7 @@ table {
     font-family: $font-primary;
     width: 100%;
     transition: all 0.5s ease;
+    text-decoration: none;
 
     &.primary {
     	background-color: $color-primary;

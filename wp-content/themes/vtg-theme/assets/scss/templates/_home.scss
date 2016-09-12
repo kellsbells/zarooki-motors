@@ -7,6 +7,11 @@
 	.hero {
 		position: relative;
 		line-height: 0;
+		padding-top: 85px;
+
+		@include breakpoint ($break-medium) {
+			padding-top: 0;
+		}
 
 		.hero-image img {
 			width: 100%;
@@ -16,16 +21,27 @@
 			position: absolute;
 			width: 100%;
 			height: 100%;
-			top: 25%;
+			top: 0;
 			left: 0;
 		}
 
 		.hero-text h1 {
 			color: #FFF;
 			text-align: center;
-			font-size: 90px;
+			font-size: 50px;
 			text-transform: uppercase;
 			font-family: $font-primary;
+			padding-top: 33%;
+
+			@include breakpoint ($break-small) {
+				font-size: 50px;
+				padding-top: 30%;
+			}
+
+			@include breakpoint ($break-medium) {
+				font-size: 90px;
+				padding-top: 18%;
+			}
 		}
 
 		.hero-arrow-container {
@@ -48,42 +64,6 @@
 			span {
 				font-size: 32px;
 			}
-		}
-	}
-
-	// .sub-hero {
-	// 	background-color: $color-secondary;
-	// 	padding: 20px 0;
-	// 	color: $white;
-	// 	text-align: center;
-	// }
-
-	.about {
-		background-color: $color-primary;
-		color: #FFF;
-		text-align: center;
-		padding: 50px 0;
-
-		@include breakpoint ($break-medium) {
-			padding: 100px 0;
-		}
-
-		.row {
-			@include clearfix;
-			padding: 60px 0 0 0;
-		}
-
-		.col-3-text {
-			@include span (12 of 12);
-			@include clearfix;
-
-			@include breakpoint ($break-medium) {
-				@include gallery (4 of 12);
-			}
-		}
-
-		span {
-			font-size: 32px;
 		}
 	}
 
@@ -140,8 +120,43 @@
 			.car-price {
 				color: $color-primary;
 			}
+
+			.car-description {
+				padding-bottom: 10px;
+			}
 		}
 	}
+
+	.about {
+		background-color: $color-secondary;
+		color: #FFF;
+		text-align: center;
+		padding: 30px 0;
+
+		@include breakpoint ($break-medium) {
+			padding: 60px 0;
+		}
+
+		.row {
+			@include clearfix;
+			padding: 60px 0 0 0;
+		}
+
+		.col-3-text {
+			@include span (12 of 12);
+			@include clearfix;
+
+			@include breakpoint ($break-medium) {
+				@include gallery (4 of 12);
+			}
+		}
+
+		span {
+			font-size: 32px;
+		}
+	}
+
+	
 
 	.search-submission {
 		background-color: $color-primary;

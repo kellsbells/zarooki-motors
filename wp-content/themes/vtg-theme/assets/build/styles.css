@@ -250,7 +250,8 @@ table {
   font-family: "Fjalla One", sans-serif;
   width: 100%;
   -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  transition: all 0.5s ease;
+  text-decoration: none; }
   .button.primary {
     background-color: #A20C0B;
     border: 2px solid #A20C0B; }
@@ -484,21 +485,34 @@ footer {
 
 .home .hero {
   position: relative;
-  line-height: 0; }
+  line-height: 0;
+  padding-top: 85px; }
+  @media (min-width: 720px) {
+    .home .hero {
+      padding-top: 0; } }
   .home .hero .hero-image img {
     width: 100%; }
   .home .hero .hero-text {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 25%;
+    top: 0;
     left: 0; }
   .home .hero .hero-text h1 {
     color: #FFF;
     text-align: center;
-    font-size: 90px;
+    font-size: 50px;
     text-transform: uppercase;
-    font-family: "Fjalla One", sans-serif; }
+    font-family: "Fjalla One", sans-serif;
+    padding-top: 33%; }
+    @media (min-width: 480px) {
+      .home .hero .hero-text h1 {
+        font-size: 50px;
+        padding-top: 30%; } }
+    @media (min-width: 720px) {
+      .home .hero .hero-text h1 {
+        font-size: 90px;
+        padding-top: 18%; } }
   .home .hero .hero-arrow-container {
     width: 100%;
     position: absolute;
@@ -514,51 +528,6 @@ footer {
     color: #FFF; }
     .home .hero .hero-arrow span {
       font-size: 32px; }
-
-.home .about {
-  background-color: #A20C0B;
-  color: #FFF;
-  text-align: center;
-  padding: 50px 0; }
-  @media (min-width: 720px) {
-    .home .about {
-      padding: 100px 0; } }
-  .home .about .row {
-    padding: 60px 0 0 0; }
-    .home .about .row:before, .home .about .row:after {
-      content: '';
-      display: table; }
-    .home .about .row:after {
-      clear: both; }
-  .home .about .col-3-text {
-    width: 100%;
-    float: left;
-    margin-left: 0;
-    margin-right: 0; }
-    .home .about .col-3-text:before, .home .about .col-3-text:after {
-      content: '';
-      display: table; }
-    .home .about .col-3-text:after {
-      clear: both; }
-    @media (min-width: 720px) {
-      .home .about .col-3-text {
-        width: 31.42857%;
-        float: left; }
-        .home .about .col-3-text:nth-child(3n + 1) {
-          margin-left: 0;
-          margin-right: -100%;
-          clear: both;
-          margin-left: 0; }
-        .home .about .col-3-text:nth-child(3n + 2) {
-          margin-left: 34.28571%;
-          margin-right: -100%;
-          clear: none; }
-        .home .about .col-3-text:nth-child(3n + 3) {
-          margin-left: 68.57143%;
-          margin-right: -100%;
-          clear: none; } }
-  .home .about span {
-    font-size: 32px; }
 
 .home .available-cars {
   color: #45403D;
@@ -651,6 +620,53 @@ footer {
       font-family: "Fjalla One", sans-serif; }
     .home .available-cars .car .car-price {
       color: #A20C0B; }
+    .home .available-cars .car .car-description {
+      padding-bottom: 10px; }
+
+.home .about {
+  background-color: #45403D;
+  color: #FFF;
+  text-align: center;
+  padding: 30px 0; }
+  @media (min-width: 720px) {
+    .home .about {
+      padding: 60px 0; } }
+  .home .about .row {
+    padding: 60px 0 0 0; }
+    .home .about .row:before, .home .about .row:after {
+      content: '';
+      display: table; }
+    .home .about .row:after {
+      clear: both; }
+  .home .about .col-3-text {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    .home .about .col-3-text:before, .home .about .col-3-text:after {
+      content: '';
+      display: table; }
+    .home .about .col-3-text:after {
+      clear: both; }
+    @media (min-width: 720px) {
+      .home .about .col-3-text {
+        width: 31.42857%;
+        float: left; }
+        .home .about .col-3-text:nth-child(3n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .home .about .col-3-text:nth-child(3n + 2) {
+          margin-left: 34.28571%;
+          margin-right: -100%;
+          clear: none; }
+        .home .about .col-3-text:nth-child(3n + 3) {
+          margin-left: 68.57143%;
+          margin-right: -100%;
+          clear: none; } }
+  .home .about span {
+    font-size: 32px; }
 
 .home .search-submission {
   background-color: #A20C0B;
