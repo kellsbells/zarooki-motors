@@ -19,13 +19,13 @@
 				</div>
 				<div class="social-icons">
 					<a href="https://twitter.com/kelleebutton" target="_blank">
-						<img src="wp-content/themes/vtg-theme/assets/img/icons/twitter.png">
+						<img src="/wp-content/themes/vtg-theme/assets/img/icons/twitter.png">
 					</a>
 					<a href="https://www.facebook.com/kelleedawn" target="_blank">
-						<img src="wp-content/themes/vtg-theme/assets/img/icons/facebook.png">
+						<img src="/wp-content/themes/vtg-theme/assets/img/icons/facebook.png">
 					</a>
 					<a href="https://plus.google.com/u/0/114655936823227127569" target="_blank">
-						<img src="wp-content/themes/vtg-theme/assets/img/icons/google-plus.png">
+						<img src="/wp-content/themes/vtg-theme/assets/img/icons/google-plus.png">
 					</a>
 				</div>
 			</div>

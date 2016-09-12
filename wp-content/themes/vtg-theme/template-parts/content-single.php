@@ -53,7 +53,7 @@ $custom_meta = get_post_meta( get_the_ID() );
 					<p>Year: <?php echo $year ?></p>
 					<p>Price: <?php echo $price ?></p>
 					<p>Stock No: <?php echo $stock_no ?></p>
-					<p>Mileage <?php echo $mileage ?></p>
+					<p>Mileage: <?php echo $mileage ?></p>
 					<p>Engine: <?php echo $engine ?></p>
 					<p>Transmission: <?php echo $transmission ?></p>
 					<p>Color: <?php echo $color ?></p>

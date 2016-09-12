@@ -307,21 +307,73 @@
 
 
 .content-area {
-	padding: 100px 0 60px 0;
-
-	.entry-title {
-		
-		margin: 0;
-	}
+	padding: 100px 0 60px 0;	
 }
 
 
 .single-vehicle {
+	.entry-title {
+		margin: 0;
+		text-transform: uppercase;
+		color: $color-secondary;
+		font-family: $font-primary;
+		text-align: center;
+
+		@include breakpoint ($break-medium) {
+			text-align: left;
+		}
+	}
+
+	.the-content {
+		color: $color-primary;
+		text-align: center;
+
+		@include breakpoint ($break-medium) {
+			text-align: left;
+		}
+	}
+
 	.vehicle-images {
-		@include gallery (6 of 12);
+		@include span (12 of 12);
+
+		@include breakpoint ($break-medium) {
+			@include gallery (6 of 12);
+		}
 	}
 
 	.vehicle-text {
-		@include gallery (6 of 12);
+		@include span (12 of 12);
+		text-align: center;
+		padding-top: 20px;
+		
+		@include breakpoint ($break-medium) {
+			@include gallery (6 of 12);
+			text-align: left;
+			padding-top: 0;
+		}
+	}
+
+	.slick-prev {
+		position: absolute;
+	    z-index: 1;
+	    left: 5px;
+	    top: 40%;
+	    height: 50px;
+
+	    @include breakpoint ($break-medium) {
+	    	top: 45%;
+	    }	
+	}
+
+	.slick-next {
+		position: absolute;
+	    z-index: 1;
+	    right: 5px;
+	    top: 40%;
+	    height: 50px;
+
+	    @include breakpoint ($break-medium) {
+	    	top: 45%;
+	    }
 	}
 }

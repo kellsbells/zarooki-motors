@@ -77,7 +77,9 @@ var Site = {
 				infinite: true,
 				speed: 300,
 				slidesToShow: 1,
-				adaptiveHeight: true
+				adaptiveHeight: true,
+				nextArrow: '<img class="slick-next" src="/wp-content/themes/vtg-theme/assets/img/slider_arrow_next.png">',
+  				prevArrow: '<img class="slick-prev" src="/wp-content/themes/vtg-theme/assets/img/slider_arrow_prev.png">',
 			});
 		}
 	}
