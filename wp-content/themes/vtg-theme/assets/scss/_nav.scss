@@ -1,3 +1,120 @@
 //--------------------------------------------------------------
 // Global Nav
 //--------------------------------------------------------------
+
+
+header {
+	position: fixed;
+	background-color: $white;
+	width: 100%;
+	padding: 5px 0;
+	-webkit-box-shadow: 0px 2px 20px -10px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 2px 20px -10px rgba(0,0,0,0.75);
+	box-shadow: 0px 2px 20px -10px rgba(0,0,0,0.75);
+	z-index: 1;
+
+	.site-logo {
+		@include clearfix;
+		@include span (12 of 12);
+		text-align: center;
+
+		@include breakpoint ($break-medium) {
+			@include span (4 of 12);
+		}
+
+		@include breakpoint ($break-large) {
+			@include span (3 of 12);
+		}
+
+		a {
+			padding: 5px;
+			box-sizing: border-box;
+			max-width: 140px;
+			margin: 0 auto;
+			text-decoration: none;
+			font-size: 26px;
+			font-family: $font-primary;
+			text-transform: uppercase;
+			color: $color-secondary;
+			cursor: pointer;
+		}
+	}
+
+	.site-nav {
+		@include span (12 of 12);
+
+		@include breakpoint ($break-medium) {
+			@include span (last 8);
+		}
+
+		@include breakpoint ($break-large) {
+			@include span (last 6);
+		}
+	}
+
+	ul {
+	    display: block;
+	    text-align: center;
+	    padding: 0;
+	    margin: 0;
+	    line-height: 1;
+	    height: 36px;
+
+	    &:after {
+	        display: inline-block;
+	        width: 100%;
+	        content: '.';
+	        visibility: hidden;
+	    }
+
+	    li {
+	        display: inline-block;
+	        width: auto;
+	        margin: 0;
+	        position: relative;
+	        top: 0;
+
+	        a {
+	            display: block;
+	            text-decoration: none;
+	            color: $black;
+	            font-family: $font-secondary;
+	            padding: 10px;
+
+	            &:hover {
+	            	color: $color-primary;
+	            }
+	        }
+	    }
+	}
+}
+
+footer {
+	background-color: $color-primary;
+	color: $white;
+	padding: 40px 0;
+	text-align: center;
+
+	.footer-logo {
+		a {
+			padding: 5px;
+			box-sizing: border-box;
+			max-width: 140px;
+			margin: 0 auto;
+			text-decoration: none;
+			font-size: 26px;
+			font-family: $font-primary;
+			text-transform: uppercase;
+			color: $white;
+			cursor: pointer;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		img {
+			padding: 10px;
+		}
+	}
+}

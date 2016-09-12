@@ -10,26 +10,38 @@ get_header();
 ?>
 
 <div class="home">
-	<section class="hero">
-		<div class="hero-image">
-			<img src="wp-content/themes/vtg-theme/assets/img/hero-background.jpg">
-		</div>
-		<div class="container">
-			<div class="hero-text">
-				<h1>Zarooki Motors</h1>	
+	<section class="hero js-hero-slider">
+		<div>
+			<div class="hero-image">
+				<img src="wp-content/themes/vtg-theme/assets/img/hero-background.jpg">
 			</div>
-		</div>
-		<div class="hero-arrow-container">
-			<div class="hero-arrow">
-				<span class="fa fa-arrow-down" aria-hidden="true"></span>
-			</div>
+			<div class="container">
+				<div class="hero-text">
+					<h1>Zarooki Motors</h1>	
+				</div>
+			</div>	
 		</div>	
-	</section>
-<!-- 	<section class="sub-hero">
-		<div class="container">
-			<h3>Zarooki Motors Slogan</h3>
+		<!-- <div>
+			<div class="hero-image">
+				<img src="wp-content/themes/vtg-theme/assets/img/hero-background.jpg">
+			</div>
+			<div class="container">
+				<div class="hero-text">
+					<h1>Zarooki Motors</h1>	
+				</div>
+			</div>	
 		</div>
-	</section> -->
+		<div>
+			<div class="hero-image">
+				<img src="wp-content/themes/vtg-theme/assets/img/hero-background.jpg">
+			</div>
+			<div class="container">
+				<div class="hero-text">
+					<h1>Zarooki Motors</h1>	
+				</div>
+			</div>	
+		</div> -->
+	</section>
 	<section class="about">
 		<div class="container">
 			<h3>We believe in our customers...</h3>
@@ -63,14 +75,14 @@ get_header();
 			</div>	
 		</div>
 	</section>
-	<section class="available-cars">
+	<section id="available-vehicles" class="available-cars">
 		<div class="container">
 			<h2>Available Cars</h2>
-			<div class="row">
+			<!-- <div class="row">
 				<button class="button secondary car-filters">View Cars</button>
 				<button class="button secondary car-filters">View Trucks</button>
 				<button class="button secondary car-filters">View SUVs</button>
-			</div>	
+			</div>	 -->
 
 
 			<div class="cars">
@@ -110,7 +122,7 @@ get_header();
 						get_the_ID(); /* or */ $post->ID;  
 
 			    ?>
-		          	<div class="car"">
+		          	<div class="car">
 						<img class="car-image" src="wp-content/themes/vtg-theme/assets/img/car.png">
 						<!-- <?php //echo the_post_thumbnail( 'vehicle_thumb' ); ?> -->
 						<h3 class="car-title"><?php the_title(); ?></h3>
@@ -148,7 +160,7 @@ get_header();
 			</form>
 		</div>
 	</section>
-	<section class="contact">
+	<section id="contact-us" class="contact">
 		<div class="container">
 			<h2>Contact Zarooki Motors</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -156,13 +168,15 @@ get_header();
 			<div class="contact-container">
 				<div class="contact-text">
 					<ul>
-						<li>123 Zarooki Street<br>City, ST 12345</li>
-						<li>Phone:<br>(555) 555-555</li>
-						<li>Fax:<br>(555) 555-555</li>
-						<li>Hours:<br>Monday - Friday<br>9am - 5pm</li>
+						<li><span>Address:</span><br>2240 South Jason Street<br>Denver, CO 80223</li>
+						<li><span>Phone:</span><br>(303) 668-3133</li>
+						<li><span>Fax:</span><br>(555) 555-555</li>
+						<li><span>Hours:</span><br>Monday - Friday 9am - 5pm</li>
 					</ul>
 				</div>
-				<div class="contact-map"></div>
+				<div class="contact-map">
+					<img src="wp-content/themes/vtg-theme/assets/img/zarooki-map.jpg">
+				</div>
 			</div>
 		</div>
 	</section>

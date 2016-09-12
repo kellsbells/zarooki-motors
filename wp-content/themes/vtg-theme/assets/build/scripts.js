@@ -1,5 +1,3 @@
-// Require dependencies
-var $ = require('jquery');
 
 // Fire it up
 var Site = {
@@ -15,6 +13,7 @@ var Site = {
 		 */
 		Site.challengeElement = document.querySelector('.breakpoint-context');
 		Site.challengeContext();
+		// Site.slick();
 
 		/**
 		 * Check breakpoint context on window resizing
@@ -58,7 +57,17 @@ var Site = {
 				fn.apply(context, args);
 			}, delay);
 		};
-	}
+	},
+
+	slick: function() {
+		$('.js-hero-slider').slick({
+				dots: false,
+				arrows: false,
+  				infinite: false,
+  				autoplay: true,
+  				autoplaySpeed: 5000,
+			});
+	},
 };
 
 $(document).ready(function() {

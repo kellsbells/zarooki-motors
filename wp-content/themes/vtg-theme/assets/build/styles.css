@@ -352,6 +352,108 @@ p {
     font-size: 16px;
     font-size: 1.6rem; }
 
+header {
+  position: fixed;
+  background-color: #FFF;
+  width: 100%;
+  padding: 5px 0;
+  box-shadow: 0px 2px 20px -10px rgba(0, 0, 0, 0.75);
+  z-index: 1; }
+  header .site-logo {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center; }
+    header .site-logo:before, header .site-logo:after {
+      content: '';
+      display: table; }
+    header .site-logo:after {
+      clear: both; }
+    @media (min-width: 720px) {
+      header .site-logo {
+        width: 31.42857%;
+        float: left;
+        margin-right: 2.85714%; } }
+    @media (min-width: 960px) {
+      header .site-logo {
+        width: 22.85714%;
+        float: left;
+        margin-right: 2.85714%; } }
+    header .site-logo a {
+      padding: 5px;
+      box-sizing: border-box;
+      max-width: 140px;
+      margin: 0 auto;
+      text-decoration: none;
+      font-size: 26px;
+      font-family: "Fjalla One", sans-serif;
+      text-transform: uppercase;
+      color: #45403D;
+      cursor: pointer; }
+  header .site-nav {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 720px) {
+      header .site-nav {
+        width: 65.71429%;
+        float: right;
+        margin-right: 0; } }
+    @media (min-width: 960px) {
+      header .site-nav {
+        width: 48.57143%;
+        float: right;
+        margin-right: 0; } }
+  header ul {
+    display: block;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    height: 36px; }
+    header ul:after {
+      display: inline-block;
+      width: 100%;
+      content: '.';
+      visibility: hidden; }
+    header ul li {
+      display: inline-block;
+      width: auto;
+      margin: 0;
+      position: relative;
+      top: 0; }
+      header ul li a {
+        display: block;
+        text-decoration: none;
+        color: #000;
+        font-family: "Lato", sans-serif;
+        padding: 10px; }
+        header ul li a:hover {
+          color: #A20C0B; }
+
+footer {
+  background-color: #A20C0B;
+  color: #FFF;
+  padding: 40px 0;
+  text-align: center; }
+  footer .footer-logo a {
+    padding: 5px;
+    box-sizing: border-box;
+    max-width: 140px;
+    margin: 0 auto;
+    text-decoration: none;
+    font-size: 26px;
+    font-family: "Fjalla One", sans-serif;
+    text-transform: uppercase;
+    color: #FFF;
+    cursor: pointer; }
+  footer a {
+    text-decoration: none; }
+    footer a img {
+      padding: 10px; }
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
@@ -384,8 +486,7 @@ p {
   position: relative;
   line-height: 0; }
   .home .hero .hero-image img {
-    width: 100%;
-    max-height: 500px; }
+    width: 100%; }
   .home .hero .hero-text {
     position: absolute;
     width: 100%;
@@ -576,39 +677,53 @@ p {
     color: #FFF;
     padding: 10px;
     font-family: "Fjalla One", sans-serif; }
+    .home .search-submission input[type="submit"]:hover {
+      color: #45403D; }
   .home .search-submission .row:before, .home .search-submission .row:after {
     content: '';
     display: table; }
   .home .search-submission .row:after {
     clear: both; }
   .home .search-submission .col-3-input {
-    width: 31.42857%;
-    float: left; }
-    .home .search-submission .col-3-input:nth-child(3n + 1) {
-      margin-left: 0;
-      margin-right: -100%;
-      clear: both;
-      margin-left: 0; }
-    .home .search-submission .col-3-input:nth-child(3n + 2) {
-      margin-left: 34.28571%;
-      margin-right: -100%;
-      clear: none; }
-    .home .search-submission .col-3-input:nth-child(3n + 3) {
-      margin-left: 68.57143%;
-      margin-right: -100%;
-      clear: none; }
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 720px) {
+      .home .search-submission .col-3-input {
+        width: 31.42857%;
+        float: left; }
+        .home .search-submission .col-3-input:nth-child(3n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .home .search-submission .col-3-input:nth-child(3n + 2) {
+          margin-left: 34.28571%;
+          margin-right: -100%;
+          clear: none; }
+        .home .search-submission .col-3-input:nth-child(3n + 3) {
+          margin-left: 68.57143%;
+          margin-right: -100%;
+          clear: none; } }
   .home .search-submission .col-2-input {
-    width: 48.57143%;
-    float: left; }
-    .home .search-submission .col-2-input:nth-child(2n + 1) {
-      margin-left: 0;
-      margin-right: -100%;
-      clear: both;
-      margin-left: 0; }
-    .home .search-submission .col-2-input:nth-child(2n + 2) {
-      margin-left: 51.42857%;
-      margin-right: -100%;
-      clear: none; }
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 720px) {
+      .home .search-submission .col-2-input {
+        width: 48.57143%;
+        float: left; }
+        .home .search-submission .col-2-input:nth-child(2n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .home .search-submission .col-2-input:nth-child(2n + 2) {
+          margin-left: 51.42857%;
+          margin-right: -100%;
+          clear: none; } }
   .home .search-submission textarea {
     width: 100%;
     margin: 5px auto;
@@ -632,3 +747,65 @@ p {
   .home .contact h2 {
     font-family: "Fjalla One", sans-serif;
     text-align: center; }
+  .home .contact p {
+    text-align: center; }
+  .home .contact .contact-container {
+    padding-top: 40px; }
+  .home .contact .contact-text {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    font-size: 1.8rem;
+    font-size: 18px;
+    vertical-align: top;
+    padding-bottom: 40px;
+    text-align: center; }
+    @media (min-width: 720px) {
+      .home .contact .contact-text {
+        width: 48.57143%;
+        float: left;
+        padding-bottom: 0;
+        text-align: left; }
+        .home .contact .contact-text:nth-child(2n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .home .contact .contact-text:nth-child(2n + 2) {
+          margin-left: 51.42857%;
+          margin-right: -100%;
+          clear: none; } }
+    .home .contact .contact-text ul {
+      padding: 0;
+      margin: 0; }
+    .home .contact .contact-text li {
+      list-style: none; }
+    .home .contact .contact-text span {
+      font-weight: bold;
+      font-family: "Fjalla One", sans-serif;
+      line-height: 2.5;
+      padding-top: 5px; }
+  .home .contact .contact-map {
+    width: 100%;
+    float: left;
+    margin-left: 0;
+    margin-right: 0; }
+    @media (min-width: 720px) {
+      .home .contact .contact-map {
+        width: 48.57143%;
+        float: left; }
+        .home .contact .contact-map:nth-child(2n + 1) {
+          margin-left: 0;
+          margin-right: -100%;
+          clear: both;
+          margin-left: 0; }
+        .home .contact .contact-map:nth-child(2n + 2) {
+          margin-left: 51.42857%;
+          margin-right: -100%;
+          clear: none; } }
+
+.home .slick-dots {
+  position: absolute; }
+  .home .slick-dots button {
+    display: none; }
